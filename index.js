@@ -36,6 +36,15 @@ app.use(function (req, res, next) {
 //     next();
 // });
 
+// app.get('/', (req, res) => {
+//     res.sendFile(path.resolve(__dirname, "front-end/dist/front-end/"))
+// });
+
+// rewrite virtual urls to angular app to enable refreshing of internal pages
+app.get('*', function (req, res, next) {
+    res.sendFile(path.resolve(__dirname, "./public/index.html"));
+});
+
 // Use routes
 app.use(binanceRouter);
 
