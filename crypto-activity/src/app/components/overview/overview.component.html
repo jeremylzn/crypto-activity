@@ -1,0 +1,67 @@
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" *ngIf="!isLoading">
+  
+    <ng-container matColumnDef="asset">
+      <th mat-header-cell *matHeaderCellDef> Asset </th>
+      <td mat-cell *matCellDef="let element"> {{element.asset}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="priceUSD">
+      <th mat-header-cell *matHeaderCellDef>Current Price</th>
+      <td mat-cell *matCellDef="let element"> {{element.priceUSD}}$</td>
+    </ng-container>
+  
+    <ng-container matColumnDef="spot">
+      <th mat-header-cell *matHeaderCellDef> Balance Spot </th>
+      <td mat-cell *matCellDef="let element" class="flex"> 
+        <div>
+          <small>Free : {{element.SPOT.free}}</small>
+        </div>
+        <div>
+          <small>Locked : {{element.SPOT.locked}}</small>
+        </div>
+      </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="earn">
+      <th mat-header-cell *matHeaderCellDef> Balance Earn </th>
+      <td mat-cell *matCellDef="let element" class="flex">
+        <div>
+          <small>Stacking : {{element.STACK}}</small>
+        </div> 
+        <div>
+          <small>Saving : {{element.SAVE}}</small>
+        </div>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="total">
+      <th mat-header-cell *matHeaderCellDef> Balance Total </th>
+      <td mat-cell *matCellDef="let element"> 
+        {{element.total}}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="totalUSD">
+      <th mat-header-cell *matHeaderCellDef> Balance Total USD </th>
+      <td mat-cell *matCellDef="let element"> 
+        {{element.totalUSD}}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="percent">
+      <th mat-header-cell *matHeaderCellDef>  % of your Wallet </th>
+      <td mat-cell *matCellDef="let element"> 
+        {{element.percent}}%
+      </td>
+    </ng-container>
+
+
+
+
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+
+  <app-loading-spinner *ngIf="isLoading"></app-loading-spinner>

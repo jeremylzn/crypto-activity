@@ -1,0 +1,10 @@
+.row {
+   
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+
+.item {
+    width: 100%;
+}

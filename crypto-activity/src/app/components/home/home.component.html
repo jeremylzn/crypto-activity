@@ -1,0 +1,24 @@
+<div class="row mt-5">
+
+    <form class="my-form" #loginForm=ngForm (ngSubmit)="Submit()">
+        <div class="col text-center">
+            <mat-form-field appearance="standard" class="item">
+                <mat-label>Enter API KEY</mat-label>
+                <input matInput placeholder="Enter API KEY" [formControl]="apiKey">
+            </mat-form-field>
+        </div>
+
+        <div class="col text-center">
+            <mat-form-field appearance="standard" class="item">
+                <mat-label>Enter Secret KEY</mat-label>
+                <input matInput placeholder="Enter Scret KEY" [formControl]="secretKey">
+            </mat-form-field>
+        </div>
+
+        <mat-card-actions>
+            <button mat-raised-button type="submit" color="primary" class="item">RUN</button>
+        </mat-card-actions>
+
+    </form>
+
+</div>
